@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <CoreText/CoreText.h>
 #import "WPUnixWordsStringSource.h"
+#import "util.h"
 
 @implementation WordsOnPicturesView
 
@@ -81,9 +82,8 @@
 	layer.foregroundColor = [[NSColor whiteColor] CGColor];
 	layer.backgroundColor = [[NSColor redColor] CGColor];
 	
-	NSSize textSize = [layer.string sizeWithAttributes:@{ NSFontNameAttribute: @"Helvetica", NSFontSizeAttribute: [NSNumber numberWithFloat:layer.fontSize] }];
-	layer.bounds = CGRectMake(0, 0, textSize.width, textSize.height);
-	layer.position = NSPointToCGPoint(SSRandomPointForSizeWithinRect(textSize, self.bounds));
+	layer.bounds = boundsForString(layer.string, @"Helvetica", layer.fontSize);
+	layer.position = NSPointToCGPoint(SSRandomPointForSizeWithinRect(NSSizeFromCGSize(layer.bounds.size), self.bounds));
 	
 	[self.layer addSublayer:layer];
 	[textLayers addObject:layer];

@@ -15,6 +15,7 @@
 		227BB47418C64F360029C48A /* WPUnixWordsStringSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 227BB47218C64F360029C48A /* WPUnixWordsStringSource.m */; };
 		227BB47718C652AA0029C48A /* WordsOnPictures.saver in CopyFiles */ = {isa = PBXBuildFile; fileRef = 227BB45118C6440F0029C48A /* WordsOnPictures.saver */; };
 		227BB47918C68CA00029C48A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227BB47818C68CA00029C48A /* CoreText.framework */; };
+		227BB47C18C692600029C48A /* util.m in Sources */ = {isa = PBXBuildFile; fileRef = 227BB47B18C692600029C48A /* util.m */; };
 		335D061D9EA646E6B37B181B /* libPods-WordsOnPictures.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C868302C29C45EEA0A8F017 /* libPods-WordsOnPictures.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,8 @@
 		227BB47118C64F360029C48A /* WPUnixWordsStringSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPUnixWordsStringSource.h; sourceTree = "<group>"; };
 		227BB47218C64F360029C48A /* WPUnixWordsStringSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPUnixWordsStringSource.m; sourceTree = "<group>"; };
 		227BB47818C68CA00029C48A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		227BB47A18C68F530029C48A /* util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		227BB47B18C692600029C48A /* util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = util.m; sourceTree = "<group>"; };
 		3C868302C29C45EEA0A8F017 /* libPods-WordsOnPictures.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WordsOnPictures.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -111,6 +114,8 @@
 			children = (
 				227BB46318C6440F0029C48A /* WordsOnPicturesView.h */,
 				227BB46418C6440F0029C48A /* WordsOnPicturesView.m */,
+				227BB47A18C68F530029C48A /* util.h */,
+				227BB47B18C692600029C48A /* util.m */,
 				227BB46B18C64DDD0029C48A /* Sources */,
 				227BB47518C6505D0029C48A /* Background Sources */,
 				227BB45D18C6440F0029C48A /* Supporting Files */,
@@ -268,6 +273,7 @@
 			files = (
 				227BB46518C6440F0029C48A /* WordsOnPicturesView.m in Sources */,
 				227BB47418C64F360029C48A /* WPUnixWordsStringSource.m in Sources */,
+				227BB47C18C692600029C48A /* util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
