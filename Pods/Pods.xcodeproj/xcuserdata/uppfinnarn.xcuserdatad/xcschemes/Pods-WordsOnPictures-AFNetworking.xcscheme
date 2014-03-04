@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "227BB45018C6440F0029C48A"
-               BuildableName = "WordsOnPictures.saver"
-               BlueprintName = "WordsOnPictures"
-               ReferencedContainer = "container:WordsOnPictures.xcodeproj">
+               BlueprintIdentifier = "3C7104DE6FB9439EB71CDF3F"
+               BuildableName = "libPods-WordsOnPictures-AFNetworking.a"
+               BlueprintName = "Pods-WordsOnPictures-AFNetworking"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -37,21 +37,8 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
-      debugDocumentVersioning = "NO"
+      debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <PathRunnable
-         FilePath = "/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app">
-      </PathRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-background"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-module WordsOnPictures"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

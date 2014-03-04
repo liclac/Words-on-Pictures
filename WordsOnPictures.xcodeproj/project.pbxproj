@@ -11,9 +11,28 @@
 		227BB45718C6440F0029C48A /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227BB45618C6440F0029C48A /* ScreenSaver.framework */; };
 		227BB46118C6440F0029C48A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 227BB45F18C6440F0029C48A /* InfoPlist.strings */; };
 		227BB46518C6440F0029C48A /* WordsOnPicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227BB46418C6440F0029C48A /* WordsOnPicturesView.m */; };
+		227BB47318C64F360029C48A /* WPUnixWordsStringSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 227BB47118C64F360029C48A /* WPUnixWordsStringSource.h */; };
+		227BB47418C64F360029C48A /* WPUnixWordsStringSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 227BB47218C64F360029C48A /* WPUnixWordsStringSource.m */; };
+		227BB47718C652AA0029C48A /* WordsOnPictures.saver in CopyFiles */ = {isa = PBXBuildFile; fileRef = 227BB45118C6440F0029C48A /* WordsOnPictures.saver */; };
+		227BB47918C68CA00029C48A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227BB47818C68CA00029C48A /* CoreText.framework */; };
+		335D061D9EA646E6B37B181B /* libPods-WordsOnPictures.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C868302C29C45EEA0A8F017 /* libPods-WordsOnPictures.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		227BB47618C651350029C48A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "~/Library/Screen Savers";
+			dstSubfolderSpec = 0;
+			files = (
+				227BB47718C652AA0029C48A /* WordsOnPictures.saver in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0F11AF39511C4574A3ED8246 /* Pods-WordsOnPictures.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordsOnPictures.xcconfig"; path = "Pods/Pods-WordsOnPictures.xcconfig"; sourceTree = "<group>"; };
 		227BB45118C6440F0029C48A /* WordsOnPictures.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordsOnPictures.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		227BB45418C6440F0029C48A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		227BB45618C6440F0029C48A /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = System/Library/Frameworks/ScreenSaver.framework; sourceTree = SDKROOT; };
@@ -25,6 +44,11 @@
 		227BB46218C6440F0029C48A /* WordsOnPictures-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WordsOnPictures-Prefix.pch"; sourceTree = "<group>"; };
 		227BB46318C6440F0029C48A /* WordsOnPicturesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WordsOnPicturesView.h; sourceTree = "<group>"; };
 		227BB46418C6440F0029C48A /* WordsOnPicturesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WordsOnPicturesView.m; sourceTree = "<group>"; };
+		227BB46C18C64DF50029C48A /* WPStringSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPStringSource.h; sourceTree = "<group>"; };
+		227BB47118C64F360029C48A /* WPUnixWordsStringSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPUnixWordsStringSource.h; sourceTree = "<group>"; };
+		227BB47218C64F360029C48A /* WPUnixWordsStringSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPUnixWordsStringSource.m; sourceTree = "<group>"; };
+		227BB47818C68CA00029C48A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		3C868302C29C45EEA0A8F017 /* libPods-WordsOnPictures.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WordsOnPictures.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,8 +56,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227BB47918C68CA00029C48A /* CoreText.framework in Frameworks */,
 				227BB45718C6440F0029C48A /* ScreenSaver.framework in Frameworks */,
 				227BB45518C6440F0029C48A /* Cocoa.framework in Frameworks */,
+				335D061D9EA646E6B37B181B /* libPods-WordsOnPictures.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +72,7 @@
 				227BB45C18C6440F0029C48A /* WordsOnPictures */,
 				227BB45318C6440F0029C48A /* Frameworks */,
 				227BB45218C6440F0029C48A /* Products */,
+				0F11AF39511C4574A3ED8246 /* Pods-WordsOnPictures.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,9 +87,11 @@
 		227BB45318C6440F0029C48A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				227BB47818C68CA00029C48A /* CoreText.framework */,
 				227BB45418C6440F0029C48A /* Cocoa.framework */,
 				227BB45618C6440F0029C48A /* ScreenSaver.framework */,
 				227BB45818C6440F0029C48A /* Other Frameworks */,
+				3C868302C29C45EEA0A8F017 /* libPods-WordsOnPictures.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -82,6 +111,8 @@
 			children = (
 				227BB46318C6440F0029C48A /* WordsOnPicturesView.h */,
 				227BB46418C6440F0029C48A /* WordsOnPicturesView.m */,
+				227BB46B18C64DDD0029C48A /* Sources */,
+				227BB47518C6505D0029C48A /* Background Sources */,
 				227BB45D18C6440F0029C48A /* Supporting Files */,
 			);
 			path = WordsOnPictures;
@@ -97,6 +128,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		227BB46B18C64DDD0029C48A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				227BB46C18C64DF50029C48A /* WPStringSource.h */,
+				227BB47118C64F360029C48A /* WPUnixWordsStringSource.h */,
+				227BB47218C64F360029C48A /* WPUnixWordsStringSource.m */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		227BB47518C6505D0029C48A /* Background Sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Background Sources";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -104,6 +152,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227BB47318C64F360029C48A /* WPUnixWordsStringSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,11 +163,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 227BB46818C6440F0029C48A /* Build configuration list for PBXNativeTarget "WordsOnPictures" */;
 			buildPhases = (
+				5E42FF4CA8B84E548602B259 /* Check Pods Manifest.lock */,
 				227BB44B18C6440F0029C48A /* Sources */,
 				227BB44C18C6440F0029C48A /* Frameworks */,
 				227BB44D18C6440F0029C48A /* Headers */,
 				227BB44E18C6440F0029C48A /* Resources */,
 				227BB44F18C6440F0029C48A /* Rez */,
+				227BB47618C651350029C48A /* CopyFiles */,
+				108DC0D0029C494083D0A4DE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,12 +228,46 @@
 		};
 /* End PBXRezBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		108DC0D0029C494083D0A4DE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-WordsOnPictures-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E42FF4CA8B84E548602B259 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		227BB44B18C6440F0029C48A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				227BB46518C6440F0029C48A /* WordsOnPicturesView.m in Sources */,
+				227BB47418C64F360029C48A /* WPUnixWordsStringSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +355,7 @@
 		};
 		227BB46918C6440F0029C48A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F11AF39511C4574A3ED8246 /* Pods-WordsOnPictures.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -282,6 +369,7 @@
 		};
 		227BB46A18C6440F0029C48A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F11AF39511C4574A3ED8246 /* Pods-WordsOnPictures.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -312,6 +400,7 @@
 				227BB46A18C6440F0029C48A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
