@@ -109,7 +109,7 @@
 		layer.opacity = 0.0f;
 		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
 		animation.fromValue = @1.0f;
-		animation.beginTime = CACurrentMediaTime() + SSRandomFloatBetween(0.0, 2);
+		animation.beginTime = CACurrentMediaTime() + SSRandomFloatBetween(0.0, 1);
 		[layer addAnimation:animation forKey:@"exitAnimation"];
 	}
 	[CATransaction commit];
