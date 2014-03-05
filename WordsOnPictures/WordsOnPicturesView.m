@@ -51,6 +51,7 @@
 		backgroundLayer.position = CGPointMake(0, 0);
 		backgroundLayer.anchorPoint = CGPointMake(0, 0);
 		backgroundLayer.bounds = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+		backgroundLayer.contentsGravity = kCAGravityResizeAspectFill;
 		[self.layer addSublayer:backgroundLayer];
 		
 		// Register Source classes
@@ -59,7 +60,7 @@
 		[stringSourceClasses addObject:[WPHorseEbooksStringSource class]];
 		
 		[backgroundSourceClasses addObject:[WPStandardWallpapersBackgroundSource class]];
-		//[backgroundSourceClasses addObject:[WPWallbaseBackgroundSource class]];
+		[backgroundSourceClasses addObject:[WPWallbaseBackgroundSource class]];
 		
 		// Create Sources
 		Class stringSourceClass = [stringSourceClasses lastObject];
