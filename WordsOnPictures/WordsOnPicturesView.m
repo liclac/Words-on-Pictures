@@ -79,9 +79,9 @@
 	layer.font = CFSTR("Helvetica");
 	layer.fontSize = SSRandomFloatBetween(10, 40);
 	layer.foregroundColor = [[NSColor whiteColor] CGColor];
-	
 	layer.bounds = boundsForString(layer.string, @"Helvetica", layer.fontSize);
 	layer.position = NSPointToCGPoint(SSRandomPointForSizeWithinRect(NSSizeFromCGSize(layer.bounds.size), self.bounds));
+	layer.masksToBounds = NO;
 	
 	[CATransaction begin];
 	[CATransaction setAnimationDuration:SSRandomFloatBetween(1, 2)];
