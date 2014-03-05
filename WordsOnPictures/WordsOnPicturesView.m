@@ -78,12 +78,25 @@
 	layer.string = [stringSource string];
 	layer.font = CFSTR("Helvetica");
 	layer.fontSize = SSRandomFloatBetween(10, 40);
-	//layer.position = CGPointMake(SSRandomFloatBetween(-layer.fontSize, self.frame.size.width), SSRandomFloatBetween(-layer.fontSize, self.frame.size.height));
 	layer.foregroundColor = [[NSColor whiteColor] CGColor];
-	layer.backgroundColor = [[NSColor redColor] CGColor];
 	
 	layer.bounds = boundsForString(layer.string, @"Helvetica", layer.fontSize);
 	layer.position = NSPointToCGPoint(SSRandomPointForSizeWithinRect(NSSizeFromCGSize(layer.bounds.size), self.bounds));
+	
+	[CATransaction begin];
+	[CATransaction setAnimationDuration:SSRandomFloatBetween(1, 2)];
+	[CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+	[CATransaction setCompletionBlock:^{
+		[layer removeFromSuperlayer];
+		[self spawnLayer];
+	}];
+	{
+		layer.opacity = 0.0f;
+		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+		animation.fromValue = @1.0f;
+		[layer addAnimation:animation forKey:@"exitAnimation"];
+	}
+	[CATransaction commit];
 	
 	[self.layer addSublayer:layer];
 	[textLayers addObject:layer];
