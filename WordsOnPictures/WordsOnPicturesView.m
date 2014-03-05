@@ -95,7 +95,7 @@
 	CATextLayer *layer = [CATextLayer layer];
 	layer.string = string;
 	layer.font = CFSTR(kFontName);
-	layer.fontSize = SSRandomFloatBetween(10, 40);
+	layer.fontSize = SSRandomFloatBetween(20, 40);
 	layer.foregroundColor = [[NSColor whiteColor] CGColor];
 	layer.bounds = boundsForString(layer.string, @kFontName, layer.fontSize);
 	layer.anchorPoint = CGPointMake(0, 0);
@@ -103,7 +103,7 @@
 	layer.masksToBounds = NO;
 	
 	[CATransaction begin];
-	[CATransaction setAnimationDuration:[layer.string length]*SSRandomFloatBetween(0.1, 0.2)];
+	[CATransaction setAnimationDuration:([layer.string length]*SSRandomFloatBetween(0.1, 0.2)) + 0.5];
 	[CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
 	[CATransaction setCompletionBlock:^{
 		[layer removeFromSuperlayer];
