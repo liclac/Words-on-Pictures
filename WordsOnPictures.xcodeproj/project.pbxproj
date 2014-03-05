@@ -16,6 +16,8 @@
 		227BB47718C652AA0029C48A /* WordsOnPictures.saver in CopyFiles */ = {isa = PBXBuildFile; fileRef = 227BB45118C6440F0029C48A /* WordsOnPictures.saver */; };
 		227BB47918C68CA00029C48A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227BB47818C68CA00029C48A /* CoreText.framework */; };
 		227BB47C18C692600029C48A /* util.m in Sources */ = {isa = PBXBuildFile; fileRef = 227BB47B18C692600029C48A /* util.m */; };
+		227BB48018C73C770029C48A /* WPHorseEbooksStringSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 227BB47E18C73C770029C48A /* WPHorseEbooksStringSource.h */; };
+		227BB48118C73C770029C48A /* WPHorseEbooksStringSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 227BB47F18C73C770029C48A /* WPHorseEbooksStringSource.m */; };
 		335D061D9EA646E6B37B181B /* libPods-WordsOnPictures.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C868302C29C45EEA0A8F017 /* libPods-WordsOnPictures.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		227BB47818C68CA00029C48A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		227BB47A18C68F530029C48A /* util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
 		227BB47B18C692600029C48A /* util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = util.m; sourceTree = "<group>"; };
+		227BB47E18C73C770029C48A /* WPHorseEbooksStringSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPHorseEbooksStringSource.h; sourceTree = "<group>"; };
+		227BB47F18C73C770029C48A /* WPHorseEbooksStringSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPHorseEbooksStringSource.m; sourceTree = "<group>"; };
 		3C868302C29C45EEA0A8F017 /* libPods-WordsOnPictures.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WordsOnPictures.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -139,6 +143,8 @@
 				227BB46C18C64DF50029C48A /* WPStringSource.h */,
 				227BB47118C64F360029C48A /* WPUnixWordsStringSource.h */,
 				227BB47218C64F360029C48A /* WPUnixWordsStringSource.m */,
+				227BB47E18C73C770029C48A /* WPHorseEbooksStringSource.h */,
+				227BB47F18C73C770029C48A /* WPHorseEbooksStringSource.m */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -157,6 +163,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227BB48018C73C770029C48A /* WPHorseEbooksStringSource.h in Headers */,
 				227BB47318C64F360029C48A /* WPUnixWordsStringSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				227BB46518C6440F0029C48A /* WordsOnPicturesView.m in Sources */,
+				227BB48118C73C770029C48A /* WPHorseEbooksStringSource.m in Sources */,
 				227BB47418C64F360029C48A /* WPUnixWordsStringSource.m in Sources */,
 				227BB47C18C692600029C48A /* util.m in Sources */,
 			);

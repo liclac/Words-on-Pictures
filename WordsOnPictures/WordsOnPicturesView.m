@@ -8,7 +8,10 @@
 
 #import "WordsOnPicturesView.h"
 #import "WPUnixWordsStringSource.h"
+#import "WPHorseEbooksStringSource.h"
 #import "util.h"
+
+#define kFontName "Helvetica"
 
 @implementation WordsOnPicturesView
 
@@ -32,19 +35,20 @@
 		// Setup Loading Layer
 		loadingLayer = [CATextLayer layer];
 		loadingLayer.string = @"Loading...";
-		loadingLayer.font = CFSTR("Helvetica");
-		loadingLayer.fontSize = 50;
+		loadingLayer.font = CFSTR(kFontName);
+		loadingLayer.fontSize = 36;
 		loadingLayer.foregroundColor = [NSColor whiteColor].CGColor;
-		loadingLayer.bounds = boundsForString(loadingLayer.string, @"Helvetica", loadingLayer.fontSize);
+		loadingLayer.bounds = boundsForString(loadingLayer.string, @kFontName, loadingLayer.fontSize);
 		loadingLayer.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
 		loadingLayer.anchorPoint = CGPointMake(0.5, 0.5);
 		[self.layer addSublayer:loadingLayer];
 		
 		// Register Source classes
 		[stringSourceClasses addObject:[WPUnixWordsStringSource class]];
+		[stringSourceClasses addObject:[WPHorseEbooksStringSource class]];
 		
 		// Create Sources
-		Class stringSourceClass = [stringSourceClasses objectAtIndex:0];
+		Class stringSourceClass = [stringSourceClasses lastObject];
 		stringSource = [[stringSourceClass alloc] init];
 		stringSource.delegate = self;
 		[stringSource startLoading];
@@ -87,10 +91,10 @@
 {
 	CATextLayer *layer = [CATextLayer layer];
 	layer.string = [stringSource string];
-	layer.font = CFSTR("Helvetica");
+	layer.font = CFSTR(kFontName);
 	layer.fontSize = SSRandomFloatBetween(10, 40);
 	layer.foregroundColor = [[NSColor whiteColor] CGColor];
-	layer.bounds = boundsForString(layer.string, @"Helvetica", layer.fontSize);
+	layer.bounds = boundsForString(layer.string, @kFontName, layer.fontSize);
 	layer.position = NSPointToCGPoint(SSRandomPointForSizeWithinRect(NSSizeFromCGSize(layer.bounds.size), self.bounds));
 	layer.masksToBounds = NO;
 	
@@ -129,6 +133,7 @@
 - (void)stringSource:(id<WPStringSource>)source didFailLoadingWithError:(NSString *)error
 {
 	loadingLayer.string = error;
+	loadingLayer.bounds = boundsForString(loadingLayer.string, @kFontName, loadingLayer.fontSize);
 }
 
 @end
