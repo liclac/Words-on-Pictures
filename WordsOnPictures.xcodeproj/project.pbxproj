@@ -18,6 +18,8 @@
 		227BB47C18C692600029C48A /* util.m in Sources */ = {isa = PBXBuildFile; fileRef = 227BB47B18C692600029C48A /* util.m */; };
 		227BB48018C73C770029C48A /* WPHorseEbooksStringSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 227BB47E18C73C770029C48A /* WPHorseEbooksStringSource.h */; };
 		227BB48118C73C770029C48A /* WPHorseEbooksStringSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 227BB47F18C73C770029C48A /* WPHorseEbooksStringSource.m */; };
+		227BB48A18C75ECC0029C48A /* WPPornSearchesStringSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 227BB48818C75ECC0029C48A /* WPPornSearchesStringSource.h */; };
+		227BB48B18C75ECC0029C48A /* WPPornSearchesStringSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 227BB48918C75ECC0029C48A /* WPPornSearchesStringSource.m */; };
 		335D061D9EA646E6B37B181B /* libPods-WordsOnPictures.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C868302C29C45EEA0A8F017 /* libPods-WordsOnPictures.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,9 @@
 		227BB47B18C692600029C48A /* util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = util.m; sourceTree = "<group>"; };
 		227BB47E18C73C770029C48A /* WPHorseEbooksStringSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPHorseEbooksStringSource.h; sourceTree = "<group>"; };
 		227BB47F18C73C770029C48A /* WPHorseEbooksStringSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPHorseEbooksStringSource.m; sourceTree = "<group>"; };
+		227BB48718C753450029C48A /* WPBackgroundSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPBackgroundSource.h; sourceTree = "<group>"; };
+		227BB48818C75ECC0029C48A /* WPPornSearchesStringSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPPornSearchesStringSource.h; sourceTree = "<group>"; };
+		227BB48918C75ECC0029C48A /* WPPornSearchesStringSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPPornSearchesStringSource.m; sourceTree = "<group>"; };
 		3C868302C29C45EEA0A8F017 /* libPods-WordsOnPictures.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WordsOnPictures.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,7 +125,7 @@
 				227BB46418C6440F0029C48A /* WordsOnPicturesView.m */,
 				227BB47A18C68F530029C48A /* util.h */,
 				227BB47B18C692600029C48A /* util.m */,
-				227BB46B18C64DDD0029C48A /* Sources */,
+				227BB46B18C64DDD0029C48A /* String Sources */,
 				227BB47518C6505D0029C48A /* Background Sources */,
 				227BB45D18C6440F0029C48A /* Supporting Files */,
 			);
@@ -137,7 +142,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		227BB46B18C64DDD0029C48A /* Sources */ = {
+		227BB46B18C64DDD0029C48A /* String Sources */ = {
 			isa = PBXGroup;
 			children = (
 				227BB46C18C64DF50029C48A /* WPStringSource.h */,
@@ -145,13 +150,16 @@
 				227BB47218C64F360029C48A /* WPUnixWordsStringSource.m */,
 				227BB47E18C73C770029C48A /* WPHorseEbooksStringSource.h */,
 				227BB47F18C73C770029C48A /* WPHorseEbooksStringSource.m */,
+				227BB48818C75ECC0029C48A /* WPPornSearchesStringSource.h */,
+				227BB48918C75ECC0029C48A /* WPPornSearchesStringSource.m */,
 			);
-			name = Sources;
+			name = "String Sources";
 			sourceTree = "<group>";
 		};
 		227BB47518C6505D0029C48A /* Background Sources */ = {
 			isa = PBXGroup;
 			children = (
+				227BB48718C753450029C48A /* WPBackgroundSource.h */,
 			);
 			name = "Background Sources";
 			sourceTree = "<group>";
@@ -164,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				227BB48018C73C770029C48A /* WPHorseEbooksStringSource.h in Headers */,
+				227BB48A18C75ECC0029C48A /* WPPornSearchesStringSource.h in Headers */,
 				227BB47318C64F360029C48A /* WPUnixWordsStringSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +290,7 @@
 				227BB46518C6440F0029C48A /* WordsOnPicturesView.m in Sources */,
 				227BB48118C73C770029C48A /* WPHorseEbooksStringSource.m in Sources */,
 				227BB47418C64F360029C48A /* WPUnixWordsStringSource.m in Sources */,
+				227BB48B18C75ECC0029C48A /* WPPornSearchesStringSource.m in Sources */,
 				227BB47C18C692600029C48A /* util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

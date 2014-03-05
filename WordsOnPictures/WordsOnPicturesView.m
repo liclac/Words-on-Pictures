@@ -9,6 +9,7 @@
 #import "WordsOnPicturesView.h"
 #import "WPUnixWordsStringSource.h"
 #import "WPHorseEbooksStringSource.h"
+#import "WPPornSearchesStringSource.h"
 #import "util.h"
 
 #define kFontName "Helvetica"
@@ -45,6 +46,7 @@
 		
 		// Register Source classes
 		[stringSourceClasses addObject:[WPUnixWordsStringSource class]];
+		[stringSourceClasses addObject:[WPPornSearchesStringSource class]];
 		[stringSourceClasses addObject:[WPHorseEbooksStringSource class]];
 		
 		// Create Sources
@@ -52,6 +54,11 @@
 		stringSource = [[stringSourceClass alloc] init];
 		stringSource.delegate = self;
 		[stringSource startLoading];
+		
+		Class backgroundSourceClass = [backgroundSourceClasses lastObject];
+		backgroundSource = [[backgroundSourceClass alloc] init];
+		backgroundSource.delegate = self;
+		[backgroundSource startLoading];
 	}
 	
 	return self;
@@ -135,6 +142,17 @@
 }
 
 - (void)stringSource:(id<WPStringSource>)source didFailLoadingWithError:(NSString *)error
+{
+	loadingLayer.string = error;
+	loadingLayer.bounds = boundsForString(loadingLayer.string, @kFontName, loadingLayer.fontSize);
+}
+
+- (void)backgroundSourceDidFinishLoading:(id<WPBackgroundSource>)source
+{
+	backgroundSourceReady = YES;
+}
+
+- (void)backgroundSource:(id<WPBackgroundSource>)source didFailLoadingWithError:(NSString *)error
 {
 	loadingLayer.string = error;
 	loadingLayer.bounds = boundsForString(loadingLayer.string, @kFontName, loadingLayer.fontSize);

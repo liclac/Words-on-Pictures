@@ -10,13 +10,15 @@
 #import <QuartzCore/QuartzCore.h>
 #import <CoreText/CoreText.h>
 #import "WPStringSource.h"
+#import "WPBackgroundSource.h"
 
-@interface WordsOnPicturesView : ScreenSaverView <WPStringSourceDelegate>
+@interface WordsOnPicturesView : ScreenSaverView <WPStringSourceDelegate, WPBackgroundSourceDelegate>
 {
 	NSMutableArray *stringSourceClasses, *backgroundSourceClasses;
 	
 	id<WPStringSource> stringSource;
-	BOOL stringSourceReady;
+	id<WPBackgroundSource> backgroundSource;
+	BOOL stringSourceReady, backgroundSourceReady;
 	
 	CATextLayer *loadingLayer;
 	NSMutableArray *textLayers;
