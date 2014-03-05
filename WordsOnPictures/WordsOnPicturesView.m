@@ -119,8 +119,8 @@
 	layer.foregroundColor = [[NSColor whiteColor] CGColor];
 	layer.shadowColor = [[NSColor blackColor] CGColor];
 	layer.shadowOpacity = 1;
-	layer.shadowRadius = 3;
-	layer.shadowOffset = CGSizeMake(5, -5);
+	layer.shadowRadius = 2;
+	layer.shadowOffset = CGSizeMake(2, -2);
 	layer.bounds = CGRectIntegral(boundsForString(layer.string, @kFontName, layer.fontSize));
 	layer.anchorPoint = CGPointMake(0, 0);
 	layer.position = NSPointToCGPoint(SSRandomPointForSizeWithinRect(NSSizeFromCGSize(layer.bounds.size), self.bounds));
