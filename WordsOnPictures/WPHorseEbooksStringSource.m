@@ -38,7 +38,7 @@ static const int kWPHorseEbooksStringSourceReloadThreshold = 10;
 - (void)startLoading
 {
 	[manager GET:@"http://horseebooksipsum.com/api/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		[sentences addObjectsFromArray:[operation.responseString componentsSeparatedByCharactersInSet:[NSCharacterSet punctuationCharacterSet]]];
+		[sentences addObjectsFromArray:[operation.responseString componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@";."]]];
 		[self.delegate stringSourceDidFinishLoading:self];
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		[self.delegate stringSource:self didFailLoadingWithError:[error localizedDescription]];
