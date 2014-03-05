@@ -10,6 +10,7 @@
 #import "WPUnixWordsStringSource.h"
 #import "WPHorseEbooksStringSource.h"
 #import "WPPornSearchesStringSource.h"
+#import "WPStandardWallpapersBackgroundSource.h"
 #import "WPWallbaseBackgroundSource.h"
 #import "util.h"
 
@@ -50,7 +51,6 @@
 		backgroundLayer.position = CGPointMake(0, 0);
 		backgroundLayer.anchorPoint = CGPointMake(0, 0);
 		backgroundLayer.bounds = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-		backgroundLayer.contents = [[NSImage alloc] initWithContentsOfFile:@"/Library/Desktop Pictures/Antelope Canyon.jpg"];
 		[self.layer addSublayer:backgroundLayer];
 		
 		// Register Source classes
@@ -58,7 +58,8 @@
 		[stringSourceClasses addObject:[WPPornSearchesStringSource class]];
 		[stringSourceClasses addObject:[WPHorseEbooksStringSource class]];
 		
-		[backgroundSourceClasses addObject:[WPWallbaseBackgroundSource class]];
+		[backgroundSourceClasses addObject:[WPStandardWallpapersBackgroundSource class]];
+		//[backgroundSourceClasses addObject:[WPWallbaseBackgroundSource class]];
 		
 		// Create Sources
 		Class stringSourceClass = [stringSourceClasses lastObject];
@@ -66,10 +67,10 @@
 		stringSource.delegate = self;
 		[stringSource startLoading];
 		
-		/*Class backgroundSourceClass = [backgroundSourceClasses lastObject];
+		Class backgroundSourceClass = [backgroundSourceClasses lastObject];
 		backgroundSource = [[backgroundSourceClass alloc] init];
 		backgroundSource.delegate = self;
-		[backgroundSource startLoading];*/
+		[backgroundSource startLoading];
 	}
 	
 	return self;
@@ -174,7 +175,6 @@
 {
 	NSLog(@"Loaded Image: %@", image);
 	backgroundLayer.contents = image;
-	[backgroundLayer setNeedsDisplay];
 }
 
 - (void)backgroundSource:(id<WPBackgroundSource>)source didFailToLoadImageWithError:(NSString *)error
