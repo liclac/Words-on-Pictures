@@ -117,6 +117,10 @@
 	layer.font = CFSTR(kFontName);
 	layer.fontSize = SSRandomFloatBetween(20, 40);
 	layer.foregroundColor = [[NSColor whiteColor] CGColor];
+	layer.shadowColor = [[NSColor blackColor] CGColor];
+	layer.shadowOpacity = 0.75;
+	layer.shadowRadius = 10;
+	layer.shadowOffset = CGSizeMake(10, -10);
 	layer.bounds = boundsForString(layer.string, @kFontName, layer.fontSize);
 	layer.anchorPoint = CGPointMake(0, 0);
 	layer.position = NSPointToCGPoint(SSRandomPointForSizeWithinRect(NSSizeFromCGSize(layer.bounds.size), self.bounds));
