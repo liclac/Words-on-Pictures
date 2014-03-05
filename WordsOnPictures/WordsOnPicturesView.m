@@ -118,25 +118,27 @@
 	layer.fontSize = SSRandomFloatBetween(20, 40);
 	layer.foregroundColor = [[NSColor whiteColor] CGColor];
 	layer.shadowColor = [[NSColor blackColor] CGColor];
-	layer.shadowOpacity = 0.75;
-	layer.shadowRadius = 10;
-	layer.shadowOffset = CGSizeMake(10, -10);
-	layer.bounds = boundsForString(layer.string, @kFontName, layer.fontSize);
+	layer.shadowOpacity = 1;
+	layer.shadowRadius = 3;
+	layer.shadowOffset = CGSizeMake(5, -5);
+	layer.bounds = CGRectIntegral(boundsForString(layer.string, @kFontName, layer.fontSize));
 	layer.anchorPoint = CGPointMake(0, 0);
 	layer.position = NSPointToCGPoint(SSRandomPointForSizeWithinRect(NSSizeFromCGSize(layer.bounds.size), self.bounds));
 	layer.masksToBounds = NO;
+	layer.shouldRasterize = YES;
 	
 	[CATransaction begin];
-	[CATransaction setAnimationDuration:([layer.string length]*SSRandomFloatBetween(0.1, 0.2)) + 0.5];
+	[CATransaction setAnimationDuration:([layer.string length]*0.1) + 0.5];
 	[CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
 	[CATransaction setCompletionBlock:^{
 		[layer removeFromSuperlayer];
 		[self spawnLayer];
 	}];
 	{
-		layer.opacity = 0.0f;
 		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-		animation.fromValue = @1.0f;
+		animation.removedOnCompletion = NO;
+		animation.fillMode = kCAFillModeForwards;
+		animation.toValue = @0.0f;
 		animation.beginTime = CACurrentMediaTime() + SSRandomFloatBetween(0.0, 1);
 		[layer addAnimation:animation forKey:@"exitAnimation"];
 	}
@@ -153,7 +155,7 @@
 	stringSourceReady = YES;
 	[loadingLayer removeFromSuperlayer];
 	
-	maxWordLayers = 10;
+	maxWordLayers = floor(MIN(self.frame.size.height, self.frame.size.width)/100.0);
 	while([textLayers count] <= maxWordLayers)
 		[self spawnLayer];
 }
