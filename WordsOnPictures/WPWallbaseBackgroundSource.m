@@ -35,7 +35,6 @@
 
 - (void)startLoading
 {
-	NSLog(@"%s", __PRETTY_FUNCTION__);
 	[manager GET:@"http://wallbase.cc/search"
 	  parameters:@{ @"q": @"scenic", @"color": @"", @"section": @"wallpapers", @"res_opt": @"eqeq", @"res": @"0x0", @"order_mode": @"desc", @"order": @"random", @"thpp": @"60", @"purity": @"100", @"board": @"2", @"aspect": @"0.00" }
 		 success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -65,7 +64,6 @@
 
 - (void)loadImage
 {
-	NSLog(@"%s", __PRETTY_FUNCTION__);
 	// If there's no data, load some
 	if([urls count] < 1)
 	{
@@ -75,7 +73,6 @@
 	}
 	
 	NSURL *url = [urls lastObject];
-	NSLog(@"Loading an Image from: %@", url);
 	AFHTTPRequestOperation *op = [manager HTTPRequestOperationWithRequest:[NSURLRequest requestWithURL:url]
 																  success:NULL failure:NULL];
 	op.responseSerializer = [AFImageResponseSerializer serializer];

@@ -38,7 +38,6 @@ static NSString * const kWPStandardWallpapersBackgroundSourceBasePath = @"/Libra
 				if([url getResourceValue:&value forKey:NSURLIsRegularFileKey error:NULL] && [value boolValue])
 					[urls addObject:url];
 			}
-			NSLog(@"%@", urls);
 			
 			dispatch_async(dispatch_get_main_queue(), ^{
 				[self.delegate backgroundSourceDidFinishLoading:self];

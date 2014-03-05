@@ -174,7 +174,6 @@
 
 - (void)backgroundSource:(id<WPBackgroundSource>)source didLoadImage:(NSImage *)image
 {
-	NSLog(@"Loaded Image: %@", image);
 	backgroundLayer.contents = image;
 }
 
