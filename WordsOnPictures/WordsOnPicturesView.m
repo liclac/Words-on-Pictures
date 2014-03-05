@@ -99,7 +99,7 @@
 	layer.masksToBounds = NO;
 	
 	[CATransaction begin];
-	[CATransaction setAnimationDuration:SSRandomFloatBetween(1, 2)];
+	[CATransaction setAnimationDuration:[layer.string length]*SSRandomFloatBetween(0.1, 0.2)];
 	[CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
 	[CATransaction setCompletionBlock:^{
 		[layer removeFromSuperlayer];
