@@ -23,10 +23,18 @@
 
 - (void)startLoading
 {
-	NSString *text = [[NSString alloc] initWithContentsOfFile:@"/usr/share/dict/words" encoding:NSUTF8StringEncoding error:NULL];
-	words = [text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-	
-	[self.delegate performSelector:@selector(stringSourceDidFinishLoading:) withObject:self afterDelay:0];
+	// Dispatch the (quite slow) loading of this massive file into a concurrent block
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+		
+		NSString *text = [[NSString alloc] initWithContentsOfFile:@"/usr/share/dict/words" encoding:NSUTF8StringEncoding error:NULL];
+		words = [text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+		
+		// Dispatch the delegate message back to the main thread; doing it from a block could mean trouble
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self.delegate stringSourceDidFinishLoading:self];
+		});
+		
+	});
 }
 
 - (NSString *)string
