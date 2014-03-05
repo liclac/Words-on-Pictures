@@ -180,7 +180,20 @@
 
 - (void)backgroundSource:(id<WPBackgroundSource>)source didLoadImage:(NSImage *)image
 {
-	backgroundLayer.contents = image;
+	[CATransaction begin];
+	[CATransaction setAnimationDuration:1];
+	[CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+	{
+		CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+		animation.removedOnCompletion = NO;
+		animation.fillMode = kCAFillModeForwards;
+		animation.fromValue = @0.0f;
+		animation.toValue = @1.0f;
+		[backgroundLayer addAnimation:animation forKey:@"fadeAnimation"];
+		
+		backgroundLayer.contents = image;
+	}
+	[CATransaction commit];
 }
 
 - (void)backgroundSource:(id<WPBackgroundSource>)source didFailToLoadImageWithError:(NSString *)error
