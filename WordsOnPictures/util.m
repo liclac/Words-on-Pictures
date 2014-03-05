@@ -17,5 +17,5 @@ CGRect boundsForString(NSString *str, NSString *fontName, CGFloat fontSize)
 	
 	CFRelease(line);
 	
-	return CGRectMake(0, descent, ceilf(width), ceilf(ascent + descent));
+	return CGRectMake(0, -floorf(descent), ceilf(width), ceilf(ascent + descent));
 }
