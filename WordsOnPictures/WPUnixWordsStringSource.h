@@ -14,6 +14,4 @@
 	NSArray *words;
 }
 
-- (id)init;
-
 @end

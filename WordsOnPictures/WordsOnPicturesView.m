@@ -7,8 +7,6 @@
 //
 
 #import "WordsOnPicturesView.h"
-#import <QuartzCore/QuartzCore.h>
-#import <CoreText/CoreText.h>
 #import "WPUnixWordsStringSource.h"
 #import "util.h"
 
@@ -22,21 +20,34 @@
 		backgroundSourceClasses = [[NSMutableArray alloc] init];
 		textLayers = [[NSMutableArray alloc] init];
 		
-		//[self setAnimationTimeInterval:1/30.0];
+		// Setup Host Layer
+		// Note that -[setLayer:] must be called before -[setWantsLayer:], otherwise we end up
+		// with a layer-backed view instead of a layer-hosting view
 		[self setLayer:[CALayer layer]];
 		[self setWantsLayer:YES];
 		self.layer.opaque = YES;
 		self.layer.frame = NSRectToCGRect(self.bounds);
 		self.layer.backgroundColor = [[NSColor blackColor] CGColor];
 		
+		// Setup Loading Layer
+		loadingLayer = [CATextLayer layer];
+		loadingLayer.string = @"Loading...";
+		loadingLayer.font = CFSTR("Helvetica");
+		loadingLayer.fontSize = 50;
+		loadingLayer.foregroundColor = [NSColor whiteColor].CGColor;
+		loadingLayer.bounds = boundsForString(loadingLayer.string, @"Helvetica", loadingLayer.fontSize);
+		loadingLayer.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+		loadingLayer.anchorPoint = CGPointMake(0.5, 0.5);
+		[self.layer addSublayer:loadingLayer];
+		
+		// Register Source classes
 		[stringSourceClasses addObject:[WPUnixWordsStringSource class]];
 		
+		// Create Sources
 		Class stringSourceClass = [stringSourceClasses objectAtIndex:0];
 		stringSource = [[stringSourceClass alloc] init];
-		
-		maxWordLayers = 10;
-		while([textLayers count] <= maxWordLayers)
-			[self spawnLayer];
+		stringSource.delegate = self;
+		[stringSource startLoading];
 	}
 	
 	return self;
@@ -103,6 +114,21 @@
 	[textLayers addObject:layer];
 	
 	NSLog(@"Spawned Layer: %@ (%f, %f)", layer.string, layer.position.x, layer.position.y);
+}
+
+- (void)stringSourceDidFinishLoading:(id<WPStringSource>)source
+{
+	stringSourceReady = YES;
+	[loadingLayer removeFromSuperlayer];
+	
+	maxWordLayers = 10;
+	while([textLayers count] <= maxWordLayers)
+		[self spawnLayer];
+}
+
+- (void)stringSource:(id<WPStringSource>)source didFailLoadingWithError:(NSString *)error
+{
+	loadingLayer.string = error;
 }
 
 @end

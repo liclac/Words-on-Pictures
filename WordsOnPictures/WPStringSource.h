@@ -10,9 +10,19 @@
 
 @protocol WPStringSource <NSObject>
 
+@property (weak) id delegate;
+
 + (NSString *)sourceName;
 + (NSString *)sourceDescription;
 
+- (void)startLoading;
 - (NSString *)string;
+
+@end
+
+@protocol WPStringSourceDelegate <NSObject>
+
+- (void)stringSourceDidFinishLoading:(id<WPStringSource>)source;
+- (void)stringSource:(id<WPStringSource>)source didFailLoadingWithError:(NSString *)error;
 
 @end

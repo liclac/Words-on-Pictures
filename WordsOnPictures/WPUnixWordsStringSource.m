@@ -9,17 +9,7 @@
 #import "WPUnixWordsStringSource.h"
 
 @implementation WPUnixWordsStringSource
-
-- (id)init
-{
-	if((self = [super init]))
-	{
-		NSString *text = [[NSString alloc] initWithContentsOfFile:@"/usr/share/dict/words" encoding:NSUTF8StringEncoding error:NULL];
-		words = [text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-	}
-	
-	return self;
-}
+@synthesize delegate;
 
 + (NSString *)sourceName
 {
@@ -29,6 +19,14 @@
 + (NSString *)sourceDescription
 {
 	return @"Random words picked from /usr/share/dict/words";
+}
+
+- (void)startLoading
+{
+	NSString *text = [[NSString alloc] initWithContentsOfFile:@"/usr/share/dict/words" encoding:NSUTF8StringEncoding error:NULL];
+	words = [text componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+	
+	[self.delegate performSelector:@selector(stringSourceDidFinishLoading:) withObject:self afterDelay:0];
 }
 
 - (NSString *)string

@@ -7,13 +7,18 @@
 //
 
 #import <ScreenSaver/ScreenSaver.h>
+#import <QuartzCore/QuartzCore.h>
+#import <CoreText/CoreText.h>
 #import "WPStringSource.h"
 
-@interface WordsOnPicturesView : ScreenSaverView
+@interface WordsOnPicturesView : ScreenSaverView <WPStringSourceDelegate>
 {
 	NSMutableArray *stringSourceClasses, *backgroundSourceClasses;
 	
 	id<WPStringSource> stringSource;
+	BOOL stringSourceReady;
+	
+	CATextLayer *loadingLayer;
 	NSMutableArray *textLayers;
 	
 	unsigned int maxWordLayers;
