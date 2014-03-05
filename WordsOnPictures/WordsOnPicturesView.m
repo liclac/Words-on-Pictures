@@ -10,6 +10,7 @@
 #import "WPUnixWordsStringSource.h"
 #import "WPHorseEbooksStringSource.h"
 #import "WPPornSearchesStringSource.h"
+#import "WPWallbaseBackgroundSource.h"
 #import "util.h"
 
 #define kFontName "Helvetica"
@@ -44,10 +45,20 @@
 		loadingLayer.anchorPoint = CGPointMake(0.5, 0.5);
 		[self.layer addSublayer:loadingLayer];
 		
+		// Setup Background Layer
+		backgroundLayer = [CALayer layer];
+		backgroundLayer.position = CGPointMake(0, 0);
+		backgroundLayer.anchorPoint = CGPointMake(0, 0);
+		backgroundLayer.bounds = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+		backgroundLayer.contents = [[NSImage alloc] initWithContentsOfFile:@"/Library/Desktop Pictures/Antelope Canyon.jpg"];
+		[self.layer addSublayer:backgroundLayer];
+		
 		// Register Source classes
 		[stringSourceClasses addObject:[WPUnixWordsStringSource class]];
 		[stringSourceClasses addObject:[WPPornSearchesStringSource class]];
 		[stringSourceClasses addObject:[WPHorseEbooksStringSource class]];
+		
+		[backgroundSourceClasses addObject:[WPWallbaseBackgroundSource class]];
 		
 		// Create Sources
 		Class stringSourceClass = [stringSourceClasses lastObject];
@@ -55,10 +66,10 @@
 		stringSource.delegate = self;
 		[stringSource startLoading];
 		
-		Class backgroundSourceClass = [backgroundSourceClasses lastObject];
+		/*Class backgroundSourceClass = [backgroundSourceClasses lastObject];
 		backgroundSource = [[backgroundSourceClass alloc] init];
 		backgroundSource.delegate = self;
-		[backgroundSource startLoading];
+		[backgroundSource startLoading];*/
 	}
 	
 	return self;
@@ -128,7 +139,7 @@
 	[self.layer addSublayer:layer];
 	[textLayers addObject:layer];
 	
-	NSLog(@"Spawned Layer: %@ (%f, %f)", layer.string, layer.position.x, layer.position.y);
+	//NSLog(@"Spawned Layer: %@ (%f, %f)", layer.string, layer.position.x, layer.position.y);
 }
 
 - (void)stringSourceDidFinishLoading:(id<WPStringSource>)source
@@ -150,9 +161,23 @@
 - (void)backgroundSourceDidFinishLoading:(id<WPBackgroundSource>)source
 {
 	backgroundSourceReady = YES;
+	[backgroundSource loadImage];
 }
 
 - (void)backgroundSource:(id<WPBackgroundSource>)source didFailLoadingWithError:(NSString *)error
+{
+	loadingLayer.string = error;
+	loadingLayer.bounds = boundsForString(loadingLayer.string, @kFontName, loadingLayer.fontSize);
+}
+
+- (void)backgroundSource:(id<WPBackgroundSource>)source didLoadImage:(NSImage *)image
+{
+	NSLog(@"Loaded Image: %@", image);
+	backgroundLayer.contents = image;
+	[backgroundLayer setNeedsDisplay];
+}
+
+- (void)backgroundSource:(id<WPBackgroundSource>)source didFailToLoadImageWithError:(NSString *)error
 {
 	loadingLayer.string = error;
 	loadingLayer.bounds = boundsForString(loadingLayer.string, @kFontName, loadingLayer.fontSize);

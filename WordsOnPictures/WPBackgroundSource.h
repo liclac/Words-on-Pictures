@@ -16,7 +16,7 @@
 + (NSString *)sourceDescription;
 
 - (void)startLoading;
-- (NSImage *)image;
+- (void)loadImage;
 
 @end
 
@@ -24,5 +24,8 @@
 
 - (void)backgroundSourceDidFinishLoading:(id<WPBackgroundSource>)source;
 - (void)backgroundSource:(id<WPBackgroundSource>)source didFailLoadingWithError:(NSString *)error;
+
+- (void)backgroundSource:(id<WPBackgroundSource>)source didLoadImage:(NSImage *)image;
+- (void)backgroundSource:(id<WPBackgroundSource>)source didFailToLoadImageWithError:(NSString *)error;
 
 @end

@@ -21,6 +21,7 @@
 	BOOL stringSourceReady, backgroundSourceReady;
 	
 	CATextLayer *loadingLayer;
+	CALayer *backgroundLayer;
 	NSMutableArray *textLayers;
 	
 	unsigned int maxWordLayers;
