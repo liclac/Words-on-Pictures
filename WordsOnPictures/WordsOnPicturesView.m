@@ -27,7 +27,7 @@
 		[self setWantsLayer:YES];
 		self.layer.opaque = YES;
 		self.layer.frame = NSRectToCGRect(self.bounds);
-		self.layer.backgroundColor = [[NSColor blueColor] CGColor];
+		self.layer.backgroundColor = [[NSColor blackColor] CGColor];
 		
 		[stringSourceClasses addObject:[WPUnixWordsStringSource class]];
 		
