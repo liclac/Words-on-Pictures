@@ -89,8 +89,11 @@
 
 - (void)spawnLayer
 {
+	NSString *string = [stringSource string];
+	if(!string) return;
+	
 	CATextLayer *layer = [CATextLayer layer];
-	layer.string = [stringSource string];
+	layer.string = string;
 	layer.font = CFSTR(kFontName);
 	layer.fontSize = SSRandomFloatBetween(10, 40);
 	layer.foregroundColor = [[NSColor whiteColor] CGColor];

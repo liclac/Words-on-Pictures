@@ -47,8 +47,12 @@ static const int kWPHorseEbooksStringSourceReloadThreshold = 10;
 
 - (NSString *)string
 {
-	NSString *retval = [sentences lastObject];
-	[sentences removeLastObject];
+	NSString *retval = nil;
+	if([sentences count] > 0)
+	{
+		retval = [sentences lastObject];
+		[sentences removeLastObject];
+	}
 	
 	if([sentences count] < kWPHorseEbooksStringSourceReloadThreshold)
 		[self startLoading];
