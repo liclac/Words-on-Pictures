@@ -41,7 +41,6 @@ static const int kWPPornSearchesStringSourceReloadThreshold = 10;
 				   @"_": [NSNumber numberWithDouble:CFAbsoluteTimeGetCurrent()]}
 		 success:^(AFHTTPRequestOperation *operation, id responseObject)
 	 {
-		 NSLog(@"%@", responseObject);
 		 for (NSDictionary *dict in operation.responseObject)
 			 [searches addObject:[dict objectForKey:@"keyword"]];
 		 [self.delegate stringSourceDidFinishLoading:self];
