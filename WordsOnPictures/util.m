@@ -11,10 +11,8 @@ CGRect boundsForString(NSString *str, NSString *fontName, CGFloat fontSize)
 	NSFont *font = [NSFont fontWithName:fontName size:fontSize];
 	NSAttributedString *attstr = [[NSAttributedString alloc] initWithString:str attributes:@{NSFontAttributeName: font}];
 	
-	CTLineRef line = CTLineCreateWithAttributedString((CFAttributedStringRef)attstr);
-	CGFloat ascent, descent, leading;
-	CGFloat width = CTLineGetTypographicBounds(line, &ascent, &descent, &leading);
-	CFRelease(line);
+	CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)(attstr));
+	CGSize size = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0, 0), NULL, CGSizeMake(600, CGFLOAT_MAX), NULL);
 	
-	return CGRectMake(0, -floorf(descent), ceilf(width), ceilf(ascent + descent));
+	return CGRectMake(0, 0, size.width, size.height);
 }
