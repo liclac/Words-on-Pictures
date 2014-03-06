@@ -14,7 +14,7 @@
 #import "WPWallbaseBackgroundSource.h"
 #import "util.h"
 
-#define kFontName "Helvetica"
+#define kFontName "Helvetica-Bold"
 
 @implementation WordsOnPicturesView
 
@@ -111,7 +111,7 @@
 	layer.shadowColor = [[NSColor blackColor] CGColor];
 	layer.shadowOpacity = 1;
 	layer.shadowRadius = 2;
-	layer.shadowOffset = CGSizeMake(2, -2);
+	layer.shadowOffset = CGSizeMake(1, -1);
 	layer.bounds = CGRectIntegral(boundsForString(layer.string, @kFontName, layer.fontSize));
 	layer.anchorPoint = CGPointMake(0, 0);
 	layer.position = NSPointToCGPoint(SSRandomPointForSizeWithinRect(NSSizeFromCGSize(layer.bounds.size), self.bounds));
