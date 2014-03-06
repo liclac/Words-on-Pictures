@@ -146,7 +146,7 @@
 	stringSourceReady = YES;
 	[loadingLayer removeFromSuperlayer];
 	
-	maxWordLayers = ceilf(MIN(self.frame.size.height, self.frame.size.width)/1000.0) * 10;
+	maxWordLayers = ceilf(MIN(self.frame.size.height, self.frame.size.width)/1000.0) * 5;
 	while([textLayers count] <= maxWordLayers)
 		[self spawnLayer];
 }
