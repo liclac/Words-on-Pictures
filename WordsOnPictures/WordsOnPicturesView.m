@@ -44,6 +44,7 @@
 		loadingLayer.bounds = boundsForString(loadingLayer.string, @kFontName, loadingLayer.fontSize);
 		loadingLayer.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
 		loadingLayer.anchorPoint = CGPointMake(0.5, 0.5);
+		loadingLayer.wrapped = YES;
 		[self.layer addSublayer:loadingLayer];
 		
 		// Setup Background Layer
@@ -113,6 +114,7 @@
 	layer.shadowRadius = 2;
 	layer.shadowOffset = CGSizeMake(1, -1);
 	layer.bounds = CGRectIntegral(boundsForString(layer.string, @kFontName, layer.fontSize));
+	layer.wrapped = YES;
 	layer.anchorPoint = CGPointMake(0, 0);
 	layer.position = NSPointToCGPoint(SSRandomPointForSizeWithinRect(NSSizeFromCGSize(layer.bounds.size), self.bounds));
 	layer.masksToBounds = NO;
