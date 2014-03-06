@@ -66,12 +66,10 @@
 		Class stringSourceClass = [stringSourceClasses lastObject];
 		stringSource = [[stringSourceClass alloc] init];
 		stringSource.delegate = self;
-		[stringSource startLoading];
 		
 		Class backgroundSourceClass = [backgroundSourceClasses lastObject];
 		backgroundSource = [[backgroundSourceClass alloc] init];
 		backgroundSource.delegate = self;
-		[backgroundSource startLoading];
 	}
 	
 	return self;
@@ -80,21 +78,14 @@
 - (void)startAnimation
 {
 	[super startAnimation];
+	
+	[stringSource startLoading];
+	[backgroundSource startLoading];
 }
 
 - (void)stopAnimation
 {
 	[super stopAnimation];
-}
-
-/*- (void)drawRect:(NSRect)rect
-{
-	[super drawRect:rect];
-}*/
-
-- (void)animateOneFrame
-{
-	return;
 }
 
 - (BOOL)hasConfigureSheet
