@@ -107,7 +107,7 @@
 	CATextLayer *layer = [CATextLayer layer];
 	layer.string = string;
 	layer.font = CFSTR(kFontName);
-	layer.fontSize = SSRandomFloatBetween(20, 40);
+	layer.fontSize = MAX(SSRandomFloatBetween(20, 36) - [string length]*0.1, 20);
 	layer.foregroundColor = [[NSColor whiteColor] CGColor];
 	layer.shadowColor = [[NSColor blackColor] CGColor];
 	layer.shadowOpacity = 1;
@@ -121,7 +121,7 @@
 	layer.shouldRasterize = YES;
 	
 	[CATransaction begin];
-	[CATransaction setAnimationDuration:([layer.string length]*0.1) + 0.5];
+	[CATransaction setAnimationDuration:MAX(([layer.string length]*0.2), 1)];
 	[CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
 	[CATransaction setCompletionBlock:^{
 		[layer removeFromSuperlayer];
@@ -148,7 +148,7 @@
 	stringSourceReady = YES;
 	[loadingLayer removeFromSuperlayer];
 	
-	maxWordLayers = ceilf(MIN(self.frame.size.height, self.frame.size.width)/1000.0) * 5;
+	maxWordLayers = ceilf(MIN(self.frame.size.height, self.frame.size.width)/1000.0) * 3;
 	while([textLayers count] <= maxWordLayers)
 		[self spawnLayer];
 }
